@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+datasource db {
+  provider = "sqlite" // You can change this to "postgresql" or others
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-py"
+}
+
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
+model Item {
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+}
+
+model Movie {
+  id   Int    @id @default(autoincrement())
+  name String
+  year String
+}
